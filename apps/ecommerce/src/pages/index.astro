@@ -1,6 +1,93 @@
 ---
 // apps/ecommerce/src/pages/index.astro
-const title = "Bienvenidos a NextCollege";
+const title = "NextCollege Rapid | Cursos Maestros de Hamburguesas & Fast Food Gourmet";
+
+const courses = [
+  {
+    id: "rey-parrilla",
+    name: "Rey de las hamburguesas a la parrilla",
+    badgeLevel: "Nivel: Maestro Grill / Experto",
+    badgeColor: "#f59e0b",
+    price: 14.99,
+    originalPrice: 24.99,
+    rating: "4.9",
+    reviewsCount: 428,
+    image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&auto=format&fit=crop&q=80",
+    description: "Carne 100% Angus flameada a la leña de roble, queso cheddar añejo fundido, cebolla caramelizada al bourbon y panceta crocante artesanal.",
+    duration: "4 Módulos en Video 4K (3.5 Horas)",
+    chef: "Master Chef Alejandro Rostagno",
+    highlights: [
+      "Técnicas de encendido y control térmico a leña de roble",
+      "Blend cárnico 70/30 (Tapa de asado y bife de chorizo)",
+      "Caramelización de cebollas al whisky bourbon añejo",
+      "Sellado y retención de jugos a fuego vivo"
+    ],
+    includes: "Recetario PDF + Guía de Costos + Certificado Digital + Acceso a PWA"
+  },
+  {
+    id: "hamburguesa-real",
+    name: "Hamburguesa Real",
+    badgeLevel: "Nivel: Esencial / Intermedio",
+    badgeColor: "#38bdf8",
+    price: 11.50,
+    originalPrice: 19.99,
+    rating: "4.8",
+    reviewsCount: 382,
+    image: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=800&auto=format&fit=crop&q=80",
+    description: "Doble medallón smash con costra caramelizada Maillard perfecta, queso americano fundido, pepinillos agridulces y aderezo imperial casero.",
+    duration: "3 Módulos Prácticos (2.8 Horas)",
+    chef: "Chef Valentina Méndez",
+    highlights: [
+      "Física y química de la Reacción de Maillard en plancha",
+      "Técnica de aplastado smash sin pérdida de hidratación",
+      "Formulación de salsa tártara imperial con eneldo",
+      "Horneado y tostado del pan brioche en mantequilla clarificada"
+    ],
+    includes: "Plantillas de pesaje + Ficha de producción + Certificado Oficial"
+  },
+  {
+    id: "royal-crispy",
+    name: "Hamburguesa Royal Crispy",
+    badgeLevel: "Nivel: Especialista Crispy / Avanzado",
+    badgeColor: "#ec4899",
+    price: 12.99,
+    originalPrice: 21.99,
+    rating: "5.0",
+    reviewsCount: 512,
+    image: "https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?w=800&auto=format&fit=crop&q=80",
+    description: "Pechuga marinada en buttermilk 24 horas y blend de 11 especias secretas, doble rebozado ultra crocante, ensalada coleslaw fresca con manzana verde y emulsión honey mustard.",
+    duration: "4 Módulos Intensivos (3.2 Horas)",
+    chef: "Chef Marcus Bell (Crispy Lab)",
+    highlights: [
+      "Salmuera buttermilk 24h para carne hiperjugosa",
+      "Rebozado 'Flaky Crunch' con féculas balanceadas",
+      "Temperatura de fritura en dos fases (160°C y 185°C)",
+      "Coleslaw crujiente con toque cítrico y miel silvestre"
+    ],
+    includes: "Fórmula de 11 especias + Tabla de tiempos + Certificado"
+  },
+  {
+    id: "double-whopper",
+    name: "HamburguesaDouble Whopper",
+    badgeLevel: "Nivel: Master Chef XXL / Pro",
+    badgeColor: "#10b981",
+    price: 15.50,
+    originalPrice: 26.50,
+    rating: "4.95",
+    reviewsCount: 640,
+    image: "https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&auto=format&fit=crop&q=80",
+    description: "Doble medallón colosal a la brasa viva de carbón vegetal, queso Monterrey Jack, vegetales de huerto hidropónico, aros de cebolla morada crocantes y salsa tártara artesanal.",
+    duration: "5 Módulos Maestros (4.5 Horas)",
+    chef: "Pitmaster Gastón De la Riva",
+    highlights: [
+      "Estructura y arquitectura para burgers gigantes de 400g",
+      "Ahumado en caliente con virutas de manzano",
+      "Aros de cebolla tempura hipercrujientes",
+      "Emulsión ahumada y balance ácido de vegetales frescos"
+    ],
+    includes: "Guía de montaje XXL + Masterclass en Vivo + Certificado Pro"
+  }
+];
 ---
 
 <!DOCTYPE html>
@@ -9,126 +96,1062 @@ const title = "Bienvenidos a NextCollege";
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
+  <meta name="description" content="NextCollege Rapid: Formación culinaria de élite para negocios de comida rápida y catálogo exclusivo de hamburguesas gourmet a la parrilla." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #090d16;
+      --bg-surface: #0f172a;
       --card: #131b2e;
+      --card-hover: #17223b;
       --border: #1e293b;
+      --border-accent: #334155;
       --text: #f8fafc;
       --text-muted: #94a3b8;
       --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --amber: #f59e0b;
+      --emerald: #10b981;
+      --flame: #ef4444;
+      --cyan: #38bdf8;
+      --radius: 16px;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      text-align: center;
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(37, 99, 235, 0.1);
-      border: 1px solid rgba(37, 99, 235, 0.3);
-      color: #38bdf8;
-      padding: 0.4rem 1rem;
-      border-radius: 9999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-    }
-    h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 1.25rem;
-      background: linear-gradient(135deg, #ffffff 40%, #94a3b8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    p {
-      color: var(--text-muted);
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin-bottom: 2.5rem;
       line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(37, 99, 235, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 35%, rgba(245, 158, 11, 0.09) 0%, transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(239, 68, 68, 0.08) 0%, transparent 50%);
+      background-attachment: fixed;
     }
-    .nav-cards {
+
+    /* Container */
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+    }
+    .nav-wrapper {
       display: flex;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-width: 700px;
+      justify-content: space-between;
+      align-items: center;
     }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 1.25rem 1.75rem;
-      border-radius: 1rem;
-      text-decoration: none;
-      color: var(--text);
+    .brand {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      font-weight: 600;
+      text-decoration: none;
+      color: white;
+    }
+    .brand-icon {
+      font-size: 1.8rem;
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      padding: 0.25rem 0.5rem;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+    }
+    .brand-text {
+      font-weight: 800;
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+    }
+    .brand-sub {
+      color: var(--amber);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
       font-size: 0.95rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .nav-link:hover {
+      color: white;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .btn-pwa {
+      background: linear-gradient(135deg, #2563eb, #38bdf8);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+    }
+    .btn-pwa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+    }
+    .btn-admin {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.6rem 1rem;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
       transition: all 0.2s;
     }
-    .card:hover {
-      transform: translateY(-3px);
-      border-color: var(--primary);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    .btn-admin:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--cyan);
     }
-    footer {
-      margin-top: 4rem;
+
+    /* Hero Section */
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+      text-align: center;
+      position: relative;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #fbbf24;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
       font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.75rem;
+      animation: pulseGlow 3s infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.2); }
+      50% { box-shadow: 0 0 25px rgba(245, 158, 11, 0.4); }
+    }
+    .hero-title {
+      font-size: clamp(2.3rem, 5.5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      max-width: 950px;
+      margin-left: auto;
+      margin-right: auto;
+      background: linear-gradient(135deg, #ffffff 30%, #e2e8f0 70%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-title .highlight {
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-description {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
       color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #0f172a;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.05rem;
+      padding: 0.95rem 2rem;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35);
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(245, 158, 11, 0.5);
+      filter: brightness(1.08);
+    }
+    .btn-secondary {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 0.95rem 1.8rem;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all 0.25s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      background: var(--card-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      background: rgba(19, 27, 46, 0.7);
+      border: 1px solid var(--border);
+      padding: 1.75rem 2rem;
+      border-radius: var(--radius);
+      backdrop-filter: blur(8px);
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 1.9rem;
+      font-weight: 900;
+      color: white;
+      letter-spacing: -0.02em;
+    }
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 0.25rem;
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .section-tag {
+      color: var(--cyan);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: white;
+    }
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Catalog Cards Grid */
+    .catalog-section {
+      padding: 5rem 0;
+    }
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .course-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .course-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(37, 99, 235, 0.15);
+    }
+    .card-image-wrap {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: #000;
+    }
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .course-card:hover .card-image {
+      transform: scale(1.08);
+    }
+    .badge-level {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(8px);
+      padding: 0.4rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .card-rating {
+      position: absolute;
+      bottom: 0.75rem;
+      right: 0.75rem;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(6px);
+      padding: 0.3rem 0.65rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #fbbf24;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .card-content {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .course-name {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .course-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+    .card-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      padding-top: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .price-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+    .price-original {
+      font-size: 0.8rem;
+      color: #64748b;
+      text-decoration: line-through;
+      font-weight: 600;
+    }
+    .price-current {
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: #38bdf8;
+      letter-spacing: -0.02em;
+    }
+    .btn-detail {
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(37, 99, 235, 0.4);
+      color: #93c5fd;
+      padding: 0.65rem 1.25rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .btn-detail:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+    }
+
+    /* Modal Styling */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.85);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .modal-backdrop.active {
+      display: flex;
+      opacity: 1;
+    }
+    .modal-box {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 20px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8);
+      position: relative;
+      animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes modalSlideUp {
+      from { transform: translateY(20px) scale(0.97); }
+      to { transform: translateY(0) scale(1); }
+    }
+    .modal-header {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+    .modal-header-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .modal-close-btn:hover {
+      background: var(--flame);
+      transform: rotate(90deg);
+    }
+    .modal-body {
+      padding: 2rem;
+    }
+    .modal-meta {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .modal-pill {
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.3rem 0.8rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+    }
+    .modal-title {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 0.75rem;
+    }
+    .modal-chef {
+      color: #38bdf8;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+    .modal-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .modal-section-title {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+    .modal-list {
+      list-style: none;
+      display: grid;
+      gap: 0.6rem;
+      margin-bottom: 1.75rem;
+    }
+    .modal-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      color: #cbd5e1;
+      font-size: 0.92rem;
+    }
+    .modal-list li span {
+      color: var(--emerald);
+      font-weight: 800;
+    }
+    .modal-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      border-top: 1px solid #1f2937;
+      padding-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* Platform Architecture Feature Grid */
+    .features-section {
+      padding: 4.5rem 0;
+      background: rgba(15, 23, 42, 0.4);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .feature-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      transition: all 0.25s;
+    }
+    .feature-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+    }
+    .feature-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1.2rem;
+      display: inline-block;
+    }
+    .feature-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 0.75rem;
+    }
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* PWA Banner CTA */
+    .cta-banner {
+      margin: 5rem auto;
+      background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+      border: 1px solid #3730a3;
+      border-radius: 24px;
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+    .cta-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 900;
+      color: white;
+      margin-bottom: 1rem;
+    }
+    .cta-desc {
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3.5rem 0 2rem;
+      background: #060911;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .navbar .nav-links { display: none; }
+    }
+    .footer-col h4 {
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: grid;
+      gap: 0.6rem;
+    }
+    .footer-col a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover {
+      color: var(--cyan);
+    }
+    .footer-bottom {
+      border-top: 1px solid #1e293b;
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #64748b;
     }
   </style>
 </head>
 <body>
-  <div class="badge">🚀 Scaffold Base &bull; MasterClass CI/CD</div>
-  <h1>Bienvenidos a NextCollege</h1>
-  <p>
-    Plataforma base lista para desarrollo acelerado con Inteligencia Artificial y Entrega Continua en Dokploy.
-  </p>
 
-  <div class="nav-cards">
-    <a href="/app" class="card">
-      <span style="font-size: 1.5rem;">📱</span>
-      <div style="text-align: left;">
-        <div>Ver PWA Mobile</div>
-        <small style="color: var(--text-muted); font-size: 0.75rem;">/app</small>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand">
+        <span class="brand-icon">🔥</span>
+        <div>
+          <span class="brand-text">NextCollege <span style="color:#f59e0b;">Rapid</span></span>
+          <span class="brand-sub">Burger Academy & Fast Food</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#cursos" class="nav-link">Cursos Destacados</a></li>
+        <li><a href="#metodologia" class="nav-link">Metodología</a></li>
+        <li><a href="#experiencia" class="nav-link">Experiencia Rapid</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="/app" class="btn-pwa">
+          <span>📱</span> PWA Móvil Pedidos
+        </a>
+        <a href="/admin" class="btn-admin">
+          <span>⚙️</span> Admin
+        </a>
       </div>
-    </a>
-    <a href="/admin" class="card">
-      <span style="font-size: 1.5rem;">⚙️</span>
-      <div style="text-align: left;">
-        <div>Panel Administrativo</div>
-        <small style="color: var(--text-muted); font-size: 0.75rem;">/admin</small>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-pill">
+        <span>🍔</span> NextCollege Rapid &bull; Gastronomía de Autor & Fast Food
       </div>
-    </a>
-    <a href="/api/health" class="card">
-      <span style="font-size: 1.5rem;">🩺</span>
-      <div style="text-align: left;">
-        <div>Health Check API</div>
-        <small style="color: var(--text-muted); font-size: 0.75rem;">/api/health</small>
+
+      <h1 class="hero-title">
+        Domina el Arte Maestro de las <span class="highlight">Hamburguesas a la Parrilla</span>
+      </h1>
+
+      <p class="hero-description">
+        Aprende las técnicas secretas de sellado smash, marinados crujientes de 24 horas y blend de carnes maduradas con nuestros chefs ejecutivos. Degusta la excelencia o construye tu propio negocio gastronómico.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#cursos" class="btn-primary">
+          <span>🍔</span> Ver Cursos Destacados
+        </a>
+        <a href="/app" class="btn-secondary">
+          <span>📱</span> Simular Pedidos en PWA Móvil
+        </a>
       </div>
-    </a>
+
+      <!-- Live Trust Stats -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-number">4.95 ★</div>
+          <div class="stat-label">Valoración Media (2,400+ reseñas)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100% Angus</div>
+          <div class="stat-label">Carne Certificada & Leña de Roble</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">+18,500</div>
+          <div class="stat-label">Hamburguesas & Alumnos Graduados</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">&lt; 25 Seg</div>
+          <div class="stat-label">Pipeline CI/CD Dokploy Live</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Featured Courses / Catalog Section -->
+  <section id="cursos" class="catalog-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nuestras 4 Creaciones de Élite</span>
+        <h2 class="section-title">Catálogo de Cursos & Hamburguesas Maestras</h2>
+        <p class="section-subtitle">
+          Cada curso incluye formación práctica paso a paso, fórmula de salsas secretas, balance de blends y acceso al sistema de pedidos en tiempo real.
+        </p>
+      </div>
+
+      <div class="courses-grid">
+        {courses.map((course) => (
+          <article class="course-card" id={`card-${course.id}`}>
+            <div class="card-image-wrap">
+              <img src={course.image} alt={course.name} class="card-image" loading="lazy" />
+              <span class="badge-level" style={`color: ${course.badgeColor}; border-color: ${course.badgeColor}40;`}>
+                {course.badgeLevel}
+              </span>
+              <div class="card-rating">
+                ★ <span>{course.rating}</span> ({course.reviewsCount})
+              </div>
+            </div>
+
+            <div class="card-content">
+              <h3 class="course-name">{course.name}</h3>
+              <p class="course-desc">{course.description}</p>
+
+              <div class="card-footer">
+                <div class="price-wrap">
+                  <span class="price-original">${course.originalPrice.toFixed(2)} USD</span>
+                  <span class="price-current">${course.price.toFixed(2)} <span style="font-size: 0.85rem; color: #94a3b8; font-weight: normal;">USD</span></span>
+                </div>
+
+                <button 
+                  class="btn-detail" 
+                  data-course-id={course.id}
+                  data-name={course.name}
+                  data-level={course.badgeLevel}
+                  data-level-color={course.badgeColor}
+                  data-price={course.price}
+                  data-orig-price={course.originalPrice}
+                  data-img={course.image}
+                  data-desc={course.description}
+                  data-duration={course.duration}
+                  data-chef={course.chef}
+                  data-includes={course.includes}
+                  data-highlights={JSON.stringify(course.highlights)}
+                >
+                  <span>🔍</span> Ver Detalles
+                </button>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Omnichannel Platform Features -->
+  <section id="metodologia" class="features-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Ecosistema Tecnológico Unificado</span>
+        <h2 class="section-title">¿Por qué Elegir NextCollege Rapid?</h2>
+        <p class="section-subtitle">
+          Diseñado para dueños de restaurantes y apasionados de las hamburguesas que demandan máxima calidad culinaria e ingeniería digital moderna.
+        </p>
+      </div>
+
+      <div class="feature-cards">
+        <div class="feature-card">
+          <div class="feature-icon">🔥</div>
+          <h3 class="feature-title">Parrilla a Leña & Alta Cocina</h3>
+          <p class="feature-desc">
+            Metodología paso a paso para dominar el fuego vivo, ahumados naturales y la caramelización Maillard que distingue a las mejores cadenas del mundo.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3 class="feature-title">PWA Mobile Integrada</h3>
+          <p class="feature-desc">
+            Simula pedidos en tiempo real con nuestra aplicación móvil progresiva en <a href="/app" style="color:#38bdf8; text-decoration:none; font-weight:bold;">/app</a> con catálogo, ofertas y rastreo de órdenes.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3 class="feature-title">Business Analytics & Admin</h3>
+          <p class="feature-desc">
+            Métricas de consumidores por nivel de consumo, stock de hamburguesas y monitor de base de datos MySQL en vivo desde <a href="/admin" style="color:#38bdf8; text-decoration:none; font-weight:bold;">/admin</a>.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🐳</div>
+          <h3 class="feature-title">Infraestructura Dokploy CI/CD</h3>
+          <p class="feature-desc">
+            Despliegue unificado en un solo contenedor Docker multi-stage con compilación instantánea de Astro, React y Node.js en 25 segundos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner to PWA -->
+  <section id="experiencia" class="container">
+    <div class="cta-banner">
+      <h2 class="cta-title">¿Listo para Saborear o Aprender la Receta?</h2>
+      <p class="cta-desc">
+        Ingresa a nuestra aplicación móvil PWA para simular la compra de cualquiera de nuestras 4 hamburguesas maestras con promociones exclusivas.
+      </p>
+      <div class="cta-buttons">
+        <a href="/app" class="btn-primary">
+          <span>📲</span> Abrir PWA Mobile (/app)
+        </a>
+        <a href="/admin" class="btn-secondary">
+          <span>⚙️</span> Panel de Administración (/admin)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Detail Modal -->
+  <div id="detailModal" class="modal-backdrop">
+    <div class="modal-box">
+      <div class="modal-header">
+        <img id="modalImg" src="" alt="Burger Detail" class="modal-header-img" />
+        <button id="modalClose" class="modal-close-btn" aria-label="Cerrar modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-meta">
+          <span id="modalLevel" class="modal-pill"></span>
+          <span id="modalDuration" style="font-size:0.8rem; color:#94a3b8; font-weight:600;"></span>
+        </div>
+
+        <h3 id="modalTitle" class="modal-title"></h3>
+        <div id="modalChef" class="modal-chef"></div>
+        <p id="modalDesc" class="modal-desc"></p>
+
+        <div class="modal-section-title">Contenido del Curso & Técnicas Culinarias</div>
+        <ul id="modalHighlights" class="modal-list"></ul>
+
+        <div style="background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.25); border-radius: 12px; padding: 12px 16px; margin-bottom: 20px;">
+          <div style="font-size: 0.8rem; color: #38bdf8; font-weight: 800; text-transform: uppercase;">Material Incluido</div>
+          <div id="modalIncludes" style="font-size: 0.88rem; color: #e2e8f0; margin-top: 4px;"></div>
+        </div>
+
+        <div class="modal-actions">
+          <div style="display: flex; flex-direction: column;">
+            <span id="modalOrigPrice" style="text-decoration: line-through; font-size: 0.85rem; color: #64748b;"></span>
+            <span id="modalPrice" style="font-size: 1.8rem; font-weight: 900; color: #38bdf8;"></span>
+          </div>
+
+          <div style="margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap;">
+            <a href="/app" class="btn-primary" style="padding: 0.75rem 1.4rem; font-size: 0.95rem;">
+              <span>🍔</span> Pedir en App PWA
+            </a>
+            <button id="btnModalEnroll" class="btn-secondary" style="padding: 0.75rem 1.4rem; font-size: 0.95rem;">
+              <span>🎓</span> Inscribirme Ahora
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
+  <!-- Footer -->
   <footer>
-    NextCollege Scaffold &bull; Astro + React + Node.js + MySQL + Dokploy
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+            <span style="font-size:1.6rem;">🔥</span>
+            <span style="font-size:1.2rem; font-weight:800; color:white;">NextCollege Rapid</span>
+          </div>
+          <p style="color:#94a3b8; font-size:0.9rem; max-width:360px; line-height:1.6;">
+            Plataforma comercial y académica de alta velocidad. Formación culinaria gourmet, pedidos móviles progresivos y gestión analítica para negocios de comida rápida.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Plataforma & Apps</h4>
+          <ul>
+            <li><a href="/">🌐 E-commerce Portal</a></li>
+            <li><a href="/app">📱 PWA Mobile (/app)</a></li>
+            <li><a href="/admin">⚙️ Panel Admin (/admin)</a></li>
+            <li><a href="/api/health">🩺 Health Check API</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Hamburguesas Top</h4>
+          <ul>
+            <li><a href="#cursos">Rey de las hamburguesas a la parrilla</a></li>
+            <li><a href="#cursos">Hamburguesa Real</a></li>
+            <li><a href="#cursos">Hamburguesa Royal Crispy</a></li>
+            <li><a href="#cursos">HamburguesaDouble Whopper</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; {new Date().getFullYear()} NextCollege Rapid &bull; Todos los derechos reservados. Desarrollado con Astro, React, Node.js y MySQL sobre Dokploy.
+      </div>
+    </div>
   </footer>
+
+  <!-- Modal Script -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('detailModal');
+      const modalClose = document.getElementById('modalClose');
+      const modalImg = document.getElementById('modalImg');
+      const modalLevel = document.getElementById('modalLevel');
+      const modalDuration = document.getElementById('modalDuration');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalChef = document.getElementById('modalChef');
+      const modalDesc = document.getElementById('modalDesc');
+      const modalHighlights = document.getElementById('modalHighlights');
+      const modalIncludes = document.getElementById('modalIncludes');
+      const modalPrice = document.getElementById('modalPrice');
+      const modalOrigPrice = document.getElementById('modalOrigPrice');
+      const btnModalEnroll = document.getElementById('btnModalEnroll');
+
+      // Open Modal
+      document.querySelectorAll('.btn-detail').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const name = btn.getAttribute('data-name');
+          const level = btn.getAttribute('data-level');
+          const levelColor = btn.getAttribute('data-level-color');
+          const price = parseFloat(btn.getAttribute('data-price')).toFixed(2);
+          const origPrice = parseFloat(btn.getAttribute('data-orig-price')).toFixed(2);
+          const img = btn.getAttribute('data-img');
+          const desc = btn.getAttribute('data-desc');
+          const duration = btn.getAttribute('data-duration');
+          const chef = btn.getAttribute('data-chef');
+          const includes = btn.getAttribute('data-includes');
+          const highlights = JSON.parse(btn.getAttribute('data-highlights') || '[]');
+
+          modalImg.src = img;
+          modalTitle.textContent = name;
+          modalLevel.textContent = level;
+          modalLevel.style.background = levelColor + '25';
+          modalLevel.style.color = levelColor;
+          modalLevel.style.border = `1px solid ${levelColor}60`;
+          modalDuration.textContent = '⏱️ ' + duration;
+          modalChef.textContent = '👨‍🍳 Instructor: ' + chef;
+          modalDesc.textContent = desc;
+          modalPrice.textContent = '$' + price + ' USD';
+          modalOrigPrice.textContent = '$' + origPrice + ' USD';
+          modalIncludes.textContent = includes;
+
+          modalHighlights.innerHTML = '';
+          highlights.forEach(h => {
+            const li = document.createElement('li');
+            li.innerHTML = `<span>✓</span> ${h}`;
+            modalHighlights.appendChild(li);
+          });
+
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      modalClose.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+      });
+
+      if (btnModalEnroll) {
+        btnModalEnroll.addEventListener('click', () => {
+          alert('¡Inscripción simulada con éxito! Puedes ordenar esta hamburguesa directamente en nuestra app móvil (/app).');
+          window.location.href = '/app';
+        });
+      }
+    });
+  </script>
 </body>
 </html>
